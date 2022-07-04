@@ -1,10 +1,15 @@
-let $box = document.getElementById("js-box");
+const $box = document.getElementById("js-box");
 
-let $startButton = document.querySelector(".js-start");
-let $stopButton = document.querySelector(".js-stop");
-let $cancelButton = document.querySelector(".js-cancel");
+const $startButton = document.querySelector(".js-start");
+const $stopButton = document.querySelector(".js-stop");
+const $cancelButton = document.querySelector(".js-cancel");
+const $stateButton = document.querySelector(".js-state");
 
-let keyframes = [
+// ========================================================
+// Element.animate() メソッドを使ってアニメーションを再生する
+//
+// ======================================================
+const keyframes = [
   {
     backgroundColor: "#f90351",
     offset: 0.2
@@ -15,15 +20,28 @@ let keyframes = [
   }
 ];
 
-let options = {
+const options = {
   duration: 3000,
   easing: "linear", //初期値
   iterations: Infinity
 };
 
-let boxAnimation = $box.animate(keyframes, options);
+// const boxAnimation = $box.animate(keyframes, options);
 
-boxAnimation.pause();
+// ========================================================
+// Animationオブジェクトを使って再生する
+// ======================================================
+
+//KeyFrameEffectオブジェクトを生成
+const effect = new KeyframeEffect(
+  $box, //アニメーション対象要素
+  keyframes, //keyframesオブジェクト
+  options //オプション
+);
+
+//Animationオブジェクトを生成
+const boxAnimation = new Animation(effect, document.timeline);
+// boxAnimation.cancel();
 
 $startButton.addEventListener("click", () => {
   boxAnimation.play();
@@ -34,5 +52,7 @@ $stopButton.addEventListener("click", () => {
 $cancelButton.addEventListener("click", () => {
   boxAnimation.cancel();
 });
-
-console.log(rotateColor);
+$stateButton.addEventListener("click", () => {
+  const playState = boxAnimation.playState;
+  console.log(playState);
+});

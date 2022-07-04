@@ -11,20 +11,8 @@
         width: 500px;
         aspect-ratio: 1;
         background-color: #000;
-        animation-name: a;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        animation-duration: 3s;
       }
-      @keyframes a {
-        20% {
-          background-color: #f90351;
-        }
 
-        100% {
-          transform: rotate(1turn);
-        }
-      }
       body {
         display: grid;
         min-height: 100vh;
@@ -34,6 +22,6 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="box"></div>
+    <div class="box" id="js-box"></div>
   </body>
 </html>

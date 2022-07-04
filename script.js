@@ -1,3 +1,8 @@
+let $box = document.getElementById("js-box");
+
+let $startButton = document.querySelector(".js-start");
+let $stopButton = document.querySelector(".js-stop");
+
 let rotateColor = [
   { backgroundColor: "#f90351", offset: 0.2 },
   { transform: "rotate(1turn)", backgroundColor: "#000" }
@@ -9,8 +14,15 @@ let rotateColorTiming = {
   iterations: Infinity
 };
 
-let $box = document.getElementById("js-box");
+let boxAnimation = $box.animate(rotateColor, rotateColorTiming);
 
-$box.animate(rotateColor, rotateColorTiming);
+boxAnimation.pause();
+
+$startButton.addEventListener("click", () => {
+  boxAnimation.play();
+});
+$stopButton.addEventListener("click", () => {
+  boxAnimation.pause();
+});
 
 console.log(rotateColor);

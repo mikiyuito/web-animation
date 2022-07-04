@@ -2,6 +2,7 @@ let $box = document.getElementById("js-box");
 
 let $startButton = document.querySelector(".js-start");
 let $stopButton = document.querySelector(".js-stop");
+let $cancelButton = document.querySelector(".js-cancel");
 
 let rotateColor = [
   { backgroundColor: "#f90351", offset: 0.2 },
@@ -23,6 +24,9 @@ $startButton.addEventListener("click", () => {
 });
 $stopButton.addEventListener("click", () => {
   boxAnimation.pause();
+});
+$cancelButton.addEventListener("click", () => {
+  boxAnimation.cancel();
 });
 
 console.log(rotateColor);

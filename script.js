@@ -4,18 +4,24 @@ let $startButton = document.querySelector(".js-start");
 let $stopButton = document.querySelector(".js-stop");
 let $cancelButton = document.querySelector(".js-cancel");
 
-let rotateColor = [
-  { backgroundColor: "#f90351", offset: 0.2 },
-  { transform: "rotate(1turn)", backgroundColor: "#000" }
+let keyframes = [
+  {
+    backgroundColor: "#f90351",
+    offset: 0.2
+  },
+  {
+    transform: "rotate(1turn)",
+    backgroundColor: "#000"
+  }
 ];
 
-let rotateColorTiming = {
+let options = {
   duration: 3000,
   easing: "linear", //初期値
   iterations: Infinity
 };
 
-let boxAnimation = $box.animate(rotateColor, rotateColorTiming);
+let boxAnimation = $box.animate(keyframes, options);
 
 boxAnimation.pause();
 
